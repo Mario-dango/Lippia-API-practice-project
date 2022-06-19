@@ -1,14 +1,23 @@
 package api.model.workspaces;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class WorkspacesResponse {
+    @JsonProperty("id")
     private String id;
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("hourlyRate")
     private HourlyRate hourlyRate;
+    @JsonProperty("memberships")
     private List<Membership> memberships;
+    @JsonProperty("workspaceSettings")
     private WorkspaceSettings workspaceSettings;
+    @JsonProperty("imageUrl")
     private String imageUrl;
+    @JsonProperty("featureSubscriptionType")
     private String featureSubscriptionType;
 
     public String getId() {

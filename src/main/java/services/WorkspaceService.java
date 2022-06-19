@@ -14,11 +14,4 @@ public class WorkspaceService extends BaseService {
         return get(jsonName, WorkspacesResponse[].class,setParams());
     }
 
-    private static Map<String, String> setParams() {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("base.url", PropertyManager.getProperty("base.api.url"));
-        params.put("api-key",API_KEY.get());
-        return params;
-    }
-
 }

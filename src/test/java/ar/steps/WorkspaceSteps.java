@@ -1,16 +1,27 @@
 package ar.steps;
 
-import ar.validator.WorkspaceValidator;
+import ar.validator.*;
 import com.crowdar.core.PageSteps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.And;
 import services.BaseService;
 
 public class WorkspaceSteps extends PageSteps {
 
-    @Given("Mi cuenta creada en clockify y mi X-Api-Key geneada")
-    public void miCuentaCreadaEnClockifyYMiXApiKeyGeneada() {
-        BaseService.API_KEY.set("NDRmZWUwYzEtOTZhMS00NDk5LWJkZWItY2FiNmY1MjQ3NGNh");
+    @Given("^Teniendo un '(.*)' valido generado$")
+    public void miApikeyAsociada(String apiKey) {
+        BaseService.API_KEY.set(apiKey);
+    }
+
+    @Given("^Teniendo un '(.*)' invalido generado$")
+    public void miApikeyInvalidoAsociada(String badApiKey) {
+        BaseService.API_KEY.set(badApiKey);
+    }
+
+    @And("^y un '(.*)' asociado a la cuenta$")
+    public void miWorkspaceAsociado(String workspace_Id) {
+        BaseService.WORKSPACE_ID.set(workspace_Id);
     }
 
     @Then("Obtengo los datos de mi Workspace")
@@ -18,8 +29,10 @@ public class WorkspaceSteps extends PageSteps {
         WorkspaceValidator.validate();
     }
 
-    @Given("X-Api-Key invalido")
-    public void xApiKeyInvalido() {
-        BaseService.API_KEY.set("NDRmZWUwYzEtOTZhMS00NDk5LWJkZWItY2FiNmY1MjQ3NGN");
+    @Then("se obtuvo el response esperado")
+    public void seObtuvoElResponseEsperado() {
+        ProjectValidators.ValidatorE_404();
     }
+
+
 }
