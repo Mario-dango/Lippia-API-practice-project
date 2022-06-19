@@ -1,10 +1,6 @@
 package api.config;
 
-<<<<<<< HEAD
 import services.*;
-=======
-import services.UserService;
->>>>>>> afd9944048adacc768ac5ecf479a72b6e98b7e2b
 
 public enum EntityConfiguration {
 
@@ -13,7 +9,6 @@ public enum EntityConfiguration {
         public Class<?> getEntityService() {
             return UserService.class;
         }
-<<<<<<< HEAD
 
     },
     RESPONSE_HEADERS {
@@ -47,12 +42,7 @@ public enum EntityConfiguration {
         public Class<?> getEntityService() {
             return ErrorService.class;
         }
-=======
->>>>>>> afd9944048adacc768ac5ecf479a72b6e98b7e2b
     };
 
     public abstract Class<?> getEntityService();
 }
-
-
-
